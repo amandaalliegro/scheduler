@@ -4,8 +4,6 @@ import axios from 'axios';
 
 import { getAppointmentsForDay } from '../helpers/selectors'
 export default function useApplicationData() {
-
-
   const [state, setState] = useState({
     day: 'Monday',
     days: [],
@@ -13,9 +11,7 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
-
   const setDay = day => setState({ ...state, day });
-
 
   useEffect(() => {
     Promise.all([
@@ -56,9 +52,7 @@ export default function useApplicationData() {
       });
   };
 
-
   function cancelInterview(id) {
-
     const day = { ...state.days.find(elem => elem.appointments.includes(id)) };
     day.spots++;
     const days = [...state.days].map(elem => {
