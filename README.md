@@ -5,6 +5,15 @@ The focus of this project was build and test a React application.
 To meet the testing requirements, Interview Scheduler makes use of Storybook, Jest and Cypress. 
 
 The final product allows users to book and cancel interviews.
+
+### A quick view:
+- Here is how the booking page looks like:
+![interviews and spots](https://github.com/amandaalliegro/scheduler/blob/master/docs/Interviews%20and%20spots%20available.png?raw=true)
+- When someone wants to book an appointment:
+![new appointments](https://github.com/amandaalliegro/scheduler/blob/master/docs/New%20appointment.png?raw=true)
+- And if you need to delete one appointment, first you will have to confirm, in order to avoid mistakes
+![deleting](https://github.com/amandaalliegro/scheduler/blob/master/docs/Delete%20confirmation.png?raw=trueg)
+
 ## Setup
 
 1. Fork the Interview Scheduler API repository, clone your fork and follow the repository's README.md instructions to set up the API server.
