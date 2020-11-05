@@ -1,16 +1,15 @@
-import React from "react";
-
-import 'components/Appointment/styles.scss'
-
-import useVisualMode from '../../hooks/useVisualMode'
+import React from 'react';
 import Header from 'components/Appointment/Header';
 import Empty from 'components/Appointment/Empty';
 import Show from 'components/Appointment/Show';
 import Form from 'components/Appointment/Form';
-import Error from 'components/Appointment/Error';
-import Confirm from 'components/Appointment/Confirm';
-import { getInterviewersForDay } from '../../helpers/selectors'
 import Status from 'components/Appointment/Status';
+import Confirm from 'components/Appointment/Confirm';
+import Error from 'components/Appointment/Error';
+import useVisualMode from '../../hooks/useVisualMode';
+
+import './styles.scss';
+
 
 export default function Appointment (props) {
   const EMPTY = "EMPTY";
@@ -22,7 +21,7 @@ export default function Appointment (props) {
   const EDIT = "EDIT";
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
-  
+
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -34,23 +33,23 @@ export default function Appointment (props) {
       };
       transition(SAVING);
       props
-      .bookInterview(props.id, interview)
-      .then(() => transition(SHOW))
-      .catch(error => transition(ERROR_SAVE, true));
+        .bookInterview(props.id, interview)
+        .then(() => transition(SHOW))
+        .catch(error => transition(ERROR_SAVE, true));
     }
-  }
+  };
 
   function destroy(event) {
     transition(DELETING, true);
     props
-    .cancelInterview(props.id)
-    .then(() => transition(EMPTY))
-    .catch(error => transition(ERROR_DELETE, true));
+      .cancelInterview(props.id)
+      .then(() => transition(EMPTY))
+      .catch(error => transition(ERROR_DELETE, true));
   };
 
   return (
-  <article  data-testid="appointment" className="appointment">
-    <Header time={props.time} />
+    <article data-testid="appointment" className="appointment">
+      <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === CREATE && (
         <Form
@@ -95,16 +94,17 @@ export default function Appointment (props) {
       )}
       {mode === ERROR_SAVE && (
         <Error
-          message='Cant save appointment.'
+          message='Could not save appointment.'
           onClose={() => back()}
         />
       )}
       {mode === ERROR_DELETE && (
         <Error
-          message='Cant delete appointment.'
+          message='Could not delete appointment.'
           onClose={() => back()}
         />
       )}
     </article>
-  )
+  );
 };
+

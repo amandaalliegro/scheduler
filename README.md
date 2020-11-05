@@ -1,8 +1,18 @@
 # Interview Scheduler
+The present project, Interview Scheduler, is a React application developed as part of Lighthouse Labs' Web Development Bootcamp program and was build by [Amanda Arnaut Alliegro](https://github.com/amandaalliegro)
 
+The focus of this project was build and test a React application.
+To meet the testing requirements, Interview Scheduler makes use of Storybook, Jest and Cypress. 
+
+The final product allows users to book and cancel interviews.
 ## Setup
 
-Install dependencies with `npm install`.
+1. Fork the Interview Scheduler API repository, clone your fork and follow the repository's README.md instructions to set up the API server.
+2. Fork this repository, clone your fork in a different folder.
+3. Install dependencies using the npm install command.
+4. Run the API server.
+5. Run the development web server using the npm start command.
+
 
 ## Running Webpack Development Server
 
@@ -21,3 +31,26 @@ npm test
 ```sh
 npm run storybook
 ```
+## Running Cypress Test Framework
+Before running Cypress, make sure to run the API server in test mode by typing the following command in the server directory:
+
+```sh
+npm run test:server
+```
+After running the server in test mode:
+```sh
+npm run cypress
+```
+
+## Dependencies:
+1. React
+2. Storybook
+3. Jest
+4. Cypress
+5. Axios
+6. @testing-library/jest-dom
+7. @testing-library/react
+8. @testing-library/react-hooks
+9. react-test-renderer
+10. prop-types
+11. classnames

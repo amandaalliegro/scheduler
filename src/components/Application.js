@@ -2,7 +2,6 @@ import React from "react"
 import  DayList  from 'components/DayList.js'
 import Appointment from 'components/Appointment';
 import useApplicationData from '../hooks/useApplicationData';
-import axios from 'axios';
 import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
 
 
@@ -54,11 +53,9 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        <section className="schedule">
-          {appointments}
-          <Appointment key="last" time="5pm" />
-        </section>
+        {appointments}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
-}
+};

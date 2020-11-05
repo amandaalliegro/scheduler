@@ -70,14 +70,13 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     }
+    
     return axios
       .delete(`/api/appointments/${id}`)
       .then(() => {
         setState(prev => ({ ...prev, appointments, days }));
-        
       });
   };
-
 
 
   return {
@@ -86,4 +85,4 @@ export default function useApplicationData() {
     bookInterview,
     cancelInterview
   }
-}
+};
